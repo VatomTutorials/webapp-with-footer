@@ -16,6 +16,7 @@ interface PropsContainer {
 
 
 export function NavBar({ navBarProps }: PropsContainer) {
+/***/
 	let itemArray: JSX.Element[] = [];
 	let itemProps: NavItemProps;
 	
@@ -25,14 +26,14 @@ export function NavBar({ navBarProps }: PropsContainer) {
 			navItemProps={itemProps}
 		/>);
 	}
-	
+/***/
 	
 
 
   return (
-    <>
-      {itemArray}
-    </>
+    <div>
+    	{itemArray}
+    </div>
   )
 }
 
@@ -40,3 +41,7 @@ export function NavBar({ navBarProps }: PropsContainer) {
 	// = navBarProps.itemConfigs.map(
 	//	({ id, label, route }) => ()
 	// );
+
+
+//       {itemArray}
+// <p> footer </p>

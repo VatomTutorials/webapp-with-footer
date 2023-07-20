@@ -16,7 +16,7 @@ export function NavItem({ navItemProps }: PropsContainer) {
 				color="cyan"
       	className="btn"
       >
-      	navItemProps.config.label
+      	{navItemProps.config.label}
       </Button>
     </>
   )
