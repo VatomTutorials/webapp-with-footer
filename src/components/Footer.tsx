@@ -8,7 +8,7 @@ import React from "react";
 
 
 export function Footer() {
-  //const [navBarProps, setNavBarProps] = React.useState<NavBarProps>();
+  //const [navBarPropsState, setNavBarPropsState] = React.useState();
 	const defaultItemId: string = "0";
 	const footerNavBarProps: NavBarProps = {
 		itemConfigs: [
@@ -16,18 +16,19 @@ export function Footer() {
 			{ id: "1",						label: "About",	route: "/about" },
 		],
 		currentId:		defaultItemId,
-		onNavChange:	undefined
+		onNavChange:	(newId: string) => {if (!!newId) return}
 	};
-  const [navBarProps, setNavBarProps] = React.useState<NavBarProps>(footerNavBarProps);
-	const handleNavChange = (id: string) => {
-		setNavBarProps({...navBarProps, currentId: id});
-	}// handleNavChange()
+  const [navBarPropsState, setNavBarPropsState] = React.useState<NavBarProps>(footerNavBarProps);
 	
-	setNavBarProps({...navBarProps, onNavChange: handleNavChange});
+	const handleNavChange = (newId: string) => {
+		setNavBarPropsState({...navBarPropsState, currentId: newId});
+	}// handleNavChange()
+
+	setNavBarPropsState({...navBarPropsState, onNavChange: handleNavChange});
 
   return (
     <>
-			<NavBar navBarProps={navBarProps} />
+			<NavBar navBarProps={navBarPropsState} />
     </>
   )
 }
