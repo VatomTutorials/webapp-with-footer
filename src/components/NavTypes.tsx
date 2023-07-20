@@ -2,7 +2,7 @@
 
 
 export interface NavItemConfig {
-  id:			string;
+  //id:			string;
   label:	string;
   route:	string;
 }
@@ -11,13 +11,15 @@ export interface NavItemConfig {
 export interface NavItemProps {
 	config:			NavItemConfig;
   enabled:		boolean;
+  onNavChange: (newRoute: string) => void;
 }
 
 
 export interface NavBarProps {
   itemConfigs:	NavItemConfig[];
-  currentId:		string;
-  onNavChange: (newId: string) => void;
+  //currentId:		string;
+  currentItemRoute:		string;
+  onNavChange: (newRoute: string) => void;
 }
 
 
@@ -32,8 +34,12 @@ export function getNavItemProps_FromNavBar(
 	if ( itemIndex >= navBarProps.itemConfigs.length ) throw new Error();
 
 	const itemConfig: NavItemConfig = navBarProps.itemConfigs[ itemIndex ];
-	const itemEnabled: boolean = (itemConfig.id != navBarProps.currentId);
-	const itemProps: NavItemProps = {config: itemConfig, enabled: itemEnabled};
+	const itemEnabled: boolean = (itemConfig.route != navBarProps.currentItemRoute);
+	const itemProps: NavItemProps = {
+		config: itemConfig,
+		enabled: itemEnabled,
+		onNavChange: navBarProps.onNavChange
+	};
 
 	return itemProps;
 }

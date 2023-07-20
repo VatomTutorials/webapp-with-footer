@@ -5,6 +5,7 @@ import {	NavBarProps,
 } from "./NavTypes"
 //import React from "react";
 import { NavItem } from "./NavItem"
+import '../Common.css';
 
 
 // ({ navBarProps }: NavBarProps)
@@ -16,25 +17,25 @@ interface PropsContainer {
 
 
 export function NavBar({ navBarProps }: PropsContainer) {
-/***/
 	let itemArray: JSX.Element[] = [];
 	let itemProps: NavItemProps;
 	
 	for (let i = 0; i < navBarProps.itemConfigs.length; i++) {
 		itemProps = getNavItemProps_FromNavBar(navBarProps, i);
-		itemArray.push(<NavItem
-			key={itemProps.config.id}
-			navItemProps={itemProps}
-		/>);
+		itemArray.push(
+			<div className="navbar_flexitem">
+				<NavItem
+					key={itemProps.config.route}
+					navItemProps={itemProps}
+				/>
+			</div>
+		);
 	}
-/***/
-	
-
 
   return (
-    <div>
+    <>
     	{itemArray}
-    </div>
+    </>
   )
 }
 
@@ -46,3 +47,4 @@ export function NavBar({ navBarProps }: PropsContainer) {
 
 //       {itemArray}
 // <p> footer </p>
+// 			className="navbar_flexitem"

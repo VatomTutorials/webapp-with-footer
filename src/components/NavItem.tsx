@@ -1,6 +1,6 @@
 import { NavItemProps } from "./NavTypes"
-//import { useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
+import '../Common.css';
 
 
 interface PropsContainer {
@@ -9,18 +9,23 @@ interface PropsContainer {
 
 
 export function NavItem({ navItemProps }: PropsContainer) {
+	const buttonClass: string = (navItemProps.enabled)
+		? "navbar_button_enabled" : "navbar_button_disabled";
+	
   return (
     <>
       <Button
-      	key={navItemProps.config.id}
-				color="cyan"
-      	className="btn"
-      >
+      	key={navItemProps.config.route}
+      	className={buttonClass}
+      	disabled={(! navItemProps.enabled)}
+				onClick={() => {
+					if (navItemProps.enabled){
+						navItemProps.onNavChange(navItemProps.config.route);
+					}
+				}}
+			>
       	{navItemProps.config.label}
       </Button>
     </>
   )
 }
-
-
-//				appearance="primary"

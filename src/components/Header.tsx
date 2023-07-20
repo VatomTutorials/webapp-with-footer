@@ -8,16 +8,16 @@ import React from "react";
 
 
 export function Header() {
-  const [currentItemId, setCurrentItemId] = React.useState<string>("0");
-	const handleNavChange = (newId: string) => { setCurrentItemId(newId); }
+  const [currentRoute, setCurrentRoute] = React.useState<string>("/home");
+	const handleNavChange = (newRoute: string) => { setCurrentRoute(newRoute); }
 	const itemConfigArray = [
-		{ id: "0", label: "Home", route: "/home" },
-		{ id: "1", label: "About", route: "/about" },
+		{ label: "Home", route: "/home" },
+		{ label: "About", route: "/about" },
 	];
 
 	const footerNavBarProps: NavBarProps = {
 		itemConfigs: itemConfigArray,
-		currentId: currentItemId,
+		currentItemRoute: currentRoute,
 		onNavChange:	handleNavChange
 	};
 	
