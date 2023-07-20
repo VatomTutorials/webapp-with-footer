@@ -1,12 +1,16 @@
 import {	NavBarProps } from "./NavTypes"
 import { NavBar } from "./NavBar"
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import '../Common.css';
 
 
 export function Footer() {
-  const [currentRoute, setCurrentRoute] = React.useState<string>("/home");
+	const routerLocation = useLocation();
+	const { pathname } = routerLocation;
+	const intialRoute = (pathname === "/") ? "/home" : pathname;
+	console.log(`Footer pathname: ${pathname} -- intialRoute: ${intialRoute}`);
+  const [currentRoute, setCurrentRoute] = React.useState<string>(intialRoute);
   const navigate = useNavigate();
 	const handleNavChange = (newRoute: string) => {
 		setCurrentRoute(newRoute);

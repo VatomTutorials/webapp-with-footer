@@ -8,9 +8,6 @@ import { NavItem } from "./NavItem"
 import '../Common.css';
 
 
-// ({ navBarProps }: NavBarProps)
-
-
 interface PropsContainer {
   navBarProps:		NavBarProps;
 }
@@ -23,9 +20,11 @@ export function NavBar({ navBarProps }: PropsContainer) {
 	for (let i = 0; i < navBarProps.itemConfigs.length; i++) {
 		itemProps = getNavItemProps_FromNavBar(navBarProps, i);
 		itemArray.push(
-			<div className="navbar_flexitem">
+			<div
+				key={itemProps.config.route}
+				className="navbar_flexitem"
+			>
 				<NavItem
-					key={itemProps.config.route}
 					navItemProps={itemProps}
 				/>
 			</div>
@@ -38,13 +37,3 @@ export function NavBar({ navBarProps }: PropsContainer) {
     </>
   )
 }
-
-
-	// = navBarProps.itemConfigs.map(
-	//	({ id, label, route }) => ()
-	// );
-
-
-//       {itemArray}
-// <p> footer </p>
-// 			className="navbar_flexitem"

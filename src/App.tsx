@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Footer } from './components/Footer';
 import HomePage from './pages/Home';
 import AboutPage from './pages/About';
+import Error404Page from './pages/Error404';
 import './Common.css';
 
 
@@ -16,6 +17,7 @@ function App() {
 							<Route path="/" element={<HomePage />}></Route>
 							<Route path="/home" element={<HomePage />}></Route>
 							<Route path="/about" element={<AboutPage />}></Route>
+							<Route path="*" element={<Error404Page />}></Route>
 						</Routes>
 					</div>
 				</div>
