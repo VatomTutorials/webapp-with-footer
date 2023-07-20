@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
-import appLogo from '../assets/app-logo.png';
+// import appLogo from '../assets/app-logo.png';
 import '../Common.css';
 
 
@@ -13,7 +13,6 @@ const HomePage = () => {
 			
 			<Button
 				color="cyan"
-				appearance="primary"
 				onClick={() => {
 					navigate("/about");
 				}}
@@ -25,3 +24,6 @@ const HomePage = () => {
 }
 //
 export default HomePage;
+
+
+//				appearance="primary"

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import Button from 'react-bootstrap/Button';
-import appLogo from '../assets/app-logo.png';
+// import Button from 'react-bootstrap/Button';
+// import appLogo from '../assets/app-logo.png';
 import '../Common.css';
 
 
