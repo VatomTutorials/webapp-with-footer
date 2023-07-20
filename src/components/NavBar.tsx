@@ -23,6 +23,7 @@ export function NavBar({ navBarProps }: PropsContainer) {
 	for (let i = 0; i < navBarProps.itemConfigs.length; i++) {
 		itemProps = getNavItemProps_FromNavBar(navBarProps, i);
 		itemArray.push(<NavItem
+			key={itemProps.config.id}
 			navItemProps={itemProps}
 		/>);
 	}
